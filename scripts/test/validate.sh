@@ -66,7 +66,7 @@ do
   JSONS=(${BASE_DIR}/test_inputs/small/*/${name}*(.*).json ${BASE_DIR}/test_inputs/large/*/${name}*(.*).json ${BASE_DIR}/test_inputs/single_sample/*/${name}*(.*).json ${BASE_DIR}/inputs/${name}*(.*).json)
   for json in "${JSONS[@]}"
   do
-    cmd="java -jar ${WOMTOOL_JAR} validate ${wdl} -i ${json}"
+    cmd="/usr/local/opt/openjdk@16/bin/java -jar ${WOMTOOL_JAR} validate ${wdl} -i ${json}"
     echo $cmd
     eval $cmd
     echo "PASS"

@@ -376,8 +376,8 @@ workflow GATKSVPipelineSingleSample {
     Int clean_vcf5_records_per_shard
     Int clean_vcf1b_records_per_shard
 
-    String chr_x
-    String chr_y
+    String? chr_x
+    String? chr_y
 
     Int? clean_vcf_random_seed
 
@@ -1099,7 +1099,7 @@ workflow GATKSVPipelineSingleSample {
       sv_pipeline_rdtest_docker=sv_pipeline_rdtest_docker,
       sv_pipeline_qc_docker=sv_pipeline_qc_docker,
       sv_base_mini_docker=sv_base_mini_docker,
-      
+
       runtime_overide_get_discfile_size=runtime_overide_get_discfile_size,
       runtime_override_update_sr_list_cluster=runtime_override_update_sr_list_cluster,
       runtime_override_merge_pesr_depth=runtime_override_merge_pesr_depth,
