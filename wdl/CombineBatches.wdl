@@ -346,6 +346,7 @@ workflow CombineBatches {
       call MiniTasks.ConcatVcfs as ConcatPesrDepth {
         input:
           vcfs=[MergeDeletions.out, MergeDuplications.out, HarmonizeHeaders.out[2], HarmonizeHeaders.out[3], HarmonizeHeaders.out[4]],
+          vcfs_idx=[MergeDeletions.out+".tbi", MergeDuplications.out+".tbi", HarmonizeHeaders.out[2]+".tbi", HarmonizeHeaders.out[3]+".tbi", HarmonizeHeaders.out[4]+".tbi"],
           allow_overlaps=true,
           outfile_prefix="~{cohort_name}.~{contig}.concat_pesr_depth",
           sv_base_mini_docker=sv_base_mini_docker,

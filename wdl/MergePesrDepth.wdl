@@ -86,6 +86,7 @@ workflow MergePesrDepth {
         call MiniTasks.ConcatVcfs as ConcatLargePesrDepth {
             input:
                 vcfs=[SubsetLarge.filtered_vcf, subtyped_depth_vcf],
+                vcfs_idx=[SubsetLarge.filtered_vcf + ".tbi", subtyped_depth_vcf + ".tbi"],
                 allow_overlaps=true,
                 outfile_prefix="~{prefix}.large_pesr_depth",
                 sv_base_mini_docker=sv_base_mini_docker,
