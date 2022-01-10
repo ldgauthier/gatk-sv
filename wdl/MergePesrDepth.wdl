@@ -168,8 +168,8 @@ workflow MergePesrDepth {
     if (!use_hail) {
         call MiniTasks.ConcatVcfs as ConcatShards {
             input:
-                vcfs=SortVcf.out,
-                vcfs_idx=SortVcf.out_index,
+                vcfs=flatten([[SubsetSmall.filtered_vcf], SortVcf.out]),
+                vcfs_idx=flatten([[SubsetSmall.filtered_vcf_idx], SortVcf.out_index]),
                 allow_overlaps=true,
                 outfile_prefix="~{prefix}.concat_shards",
                 sv_base_mini_docker=sv_base_mini_docker,
